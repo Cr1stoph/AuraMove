@@ -1,4 +1,4 @@
-package com.duoc.auramove.Model;
+package com.duoc.auramove.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +19,6 @@ public class usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String nombre;
     private String email;
 
