@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +24,14 @@ public class Rutina {
 
     @NotBlank
     private String nombre;
+
+    @NotBlank
     private String descripcion;
+    
+    @Min(1) 
+    @Max(10)
     private Integer nivel;
-    private String tipo_rutina;
+
+    @NotBlank
+    private String tipoRutina;
 }
