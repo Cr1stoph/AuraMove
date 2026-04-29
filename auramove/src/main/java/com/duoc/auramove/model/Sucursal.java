@@ -1,8 +1,6 @@
 package com.duoc.auramove.model;
 
-import org.hibernate.annotations.TargetEmbeddable;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
