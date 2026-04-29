@@ -29,8 +29,8 @@ public class Rutina {
     @NotBlank
     private String descripcion;
     
-    @Min(1) 
-    @Max(10)
+    @Min(value = 1, message = "El nivel minimo de la rutina es de 1") 
+    @Max(value = 10, message = "El nivel máximo de la rutina es de 5")
     private Integer nivel;
 
     @NotBlank
