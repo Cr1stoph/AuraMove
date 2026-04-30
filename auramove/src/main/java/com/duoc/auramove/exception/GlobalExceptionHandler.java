@@ -1,13 +1,18 @@
 package com.duoc.auramove.exception;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     //Maneja errores de validacion (@valid falla) -> 400 bad Request
     //MethodArgumentNotValidException.class, esta diciendo: dame el objeto que represetna a esta clase
-    @ExeptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiError> handleValidationError(MethodArgumentNotValidExcepttion ex){
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiError> handleValidationError(MethodArgumentNotValidException ex){
         // recorre todos los campos que fallaron la avalidacion y arma un mensaje
         StringBuilder detalle = new StringBuilder();
 
