@@ -1,12 +1,11 @@
 package com.duoc.auramove.repository;
+
 import org.springframework.stereotype.Repository;
-
 import com.duoc.auramove.model.Rutina;
+import or.sgpringframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.ArrayList;
 
 @Repository
-public class RutinaRepository {
-    List<Rutina> listaRutinas = new ArrayList<>();
+public interface RutinaRepository extends JpaRepository<Rutina, Long> {
+
 }
