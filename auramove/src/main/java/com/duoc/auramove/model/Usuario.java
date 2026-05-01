@@ -29,9 +29,6 @@ public class Usuario {
     @NotBlank
     private String email;
 
-<<<<<<< HEAD
-    //@OneToMany
-=======
     //Un usuario puede tener muchas sucursales y cada sucursal pertenece a un único usuario
     @OneToMany(mappedBy = "usuario")
     private List<Sucursal> sucursales;
@@ -39,5 +36,4 @@ public class Usuario {
     //Un usuario tiene muchas rutinas pero cada rutina pertenece a un usuario
     @OneToMany(mappedBy = "usuario")
     private List<Rutina> rutinas;
->>>>>>> 19598b58e37248f066d7893ad25c6979e1204a9a
 }
