@@ -27,5 +27,5 @@ public class Usuario {
     @NotBlank
     private String email;
 
-    @OneToMany
+    //@OneToMany
 }
