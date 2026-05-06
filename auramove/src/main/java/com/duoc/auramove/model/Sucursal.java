@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class Sucursal {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+        private Integer id;
         @NotBlank
         private String nombre;
         @NotBlank

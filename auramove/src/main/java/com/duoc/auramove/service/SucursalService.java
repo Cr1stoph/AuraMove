@@ -17,7 +17,7 @@ public class SucursalService {
     public Sucursal saveSucursal(Sucursal sucursal){
         return sucursalRepository.save(sucursal);
     }
-    public Sucursal getSucursalById(Long id) {
+    public Sucursal getSucursalById(Integer id) {
         return sucursalRepository.findById(id).orElse(null);
     }
     public Sucursal updateSucursal(Sucursal sucursal) {
@@ -26,7 +26,7 @@ public class SucursalService {
         }
         return sucursalRepository.save(sucursal);
     }
-    public void deleteSucursal(Long id){
+    public void deleteSucursal(Integer id){
         sucursalRepository.deleteById(id);
     }
 }

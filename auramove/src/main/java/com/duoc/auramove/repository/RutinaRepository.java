@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 @Repository
-public interface RutinaRepository extends JpaRepository<Rutina, Long> {
+public interface RutinaRepository extends JpaRepository<Rutina, Integer> {
 
 }

@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 import com.duoc.auramove.model.Ejercicio;
 
 @Repository
-public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> { 
+public interface EjercicioRepository extends JpaRepository<Ejercicio, Integer> { 
 }
