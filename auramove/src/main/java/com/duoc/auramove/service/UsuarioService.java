@@ -20,7 +20,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
     //Obtiene un usuario por id, si no existe retorna null
-    public Usuario getUsuarioById(Long id) {
+    public Usuario getUsuarioById(Integer id) {
         return usuarioRepository.findById(id).orElse(null);
     }
     //Actualiza un usuario y si no existe, retorna null
@@ -31,7 +31,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
     //Elimina un usuario por id 
-    public void deleteUsuario(Long id){ 
+    public void deleteUsuario(Integer id){ 
         usuarioRepository.deleteById(id);
     }
 
