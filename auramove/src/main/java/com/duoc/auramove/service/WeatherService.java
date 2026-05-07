@@ -19,6 +19,11 @@ public class WeatherService {
                 .uri(uriBuilder -> uriBuilder
                         .path("/v1/forecast")
                         .queryParam("latitude", latitude)
-                )
+                        .queryParam("longitude", longitude)
+                        .queryParam("current_weather", true)
+                        .build())
+                .retrieve()
+                .bodyToMono(WeatherDTO.class)
+                .block();
     }
 }
