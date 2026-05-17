@@ -22,7 +22,7 @@ import com.duoc.auramove.model.Rutina;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("api/v1/rutina")
 public class RutinaController {
 
     @Autowired
