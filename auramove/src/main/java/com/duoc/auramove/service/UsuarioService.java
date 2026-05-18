@@ -19,19 +19,22 @@ public class UsuarioService {
     public Usuario saveUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
-    //Obtiene un usuario por id, si no existe retorna null
+    //Obtiene un usuario por id, si no existe lanza a error
     public Usuario getUsuarioById(Integer id) {
-        return usuarioRepository.findById(id).orElse(null);
+        return usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
-    //Actualiza un usuario y si no existe, retorna null
+    //Valida si existe el usuario si no existe lanza a "Usuario no encontrado" 
     public Usuario updateUsuario(Usuario usuario) {
-        if(!usuarioRepository.existsById(usuario.getId())) {
-            return null;
-        }
-        return usuarioRepository.save(usuario);
+        Usuario existing = usuarioRepository.findById(usuario.getId()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        existing.setNombre(usuario.getNombre());
+        existing.setEmail(usuario.getEmail());
+        return usuarioRepository.save(existing);
     }
     //Elimina un usuario por id 
     public void deleteUsuario(Integer id){ 
+        if (!usuarioRepository.existsById(id)){
+            throw new RuntimeException("Usuario no encontrado");
+        }
         usuarioRepository.deleteById(id);
     }
 
