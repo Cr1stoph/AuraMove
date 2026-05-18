@@ -22,14 +22,17 @@ public class Sucursal {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
+
         @NotBlank
         private String nombre;
+        
         @NotBlank
         private String direccion;
+        
         @NotBlank
         private String ciudad;
 
         @ManyToOne
-        @JoinColumn(name= "usuario_id")
+        @JoinColumn(name= "usuario_id", nullable = false)
         private Usuario usuario;
 }

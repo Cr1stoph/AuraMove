@@ -2,6 +2,9 @@ package com.duoc.auramove.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +15,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,14 +30,17 @@ public class Usuario {
     @NotBlank
     private String nombre;
     
+    @Column(unique = true)
     @NotBlank
     private String email;
 
     //Un usuario puede tener muchas sucursales y cada sucursal pertenece a un único usuario
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Sucursal> sucursales;
 
     //Un usuario tiene muchas rutinas pero cada rutina pertenece a un usuario
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Rutina> rutinas;
 }

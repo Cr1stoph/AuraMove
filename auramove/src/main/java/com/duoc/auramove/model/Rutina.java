@@ -2,6 +2,9 @@ package com.duoc.auramove.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -41,10 +44,11 @@ public class Rutina {
     private String tipoRutina;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     //Una rutina tiene varios entrenamientos pero cada entrenamiento es parte de una rutina
-    @OneToMany(mappedBy = "rutina")
+    @JsonIgnore
+    @OneToMany(mappedBy = "rutina", cascade = CascadeType.ALL)
     private List<Entrenamiento> entrenamientos;
 }

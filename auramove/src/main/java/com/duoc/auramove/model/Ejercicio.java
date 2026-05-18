@@ -2,6 +2,8 @@ package com.duoc.auramove.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,28 +14,30 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "ejercicios")
 public class Ejercicio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
    
     @NotBlank
-    private String nombreUsuario;
+    private String nombre;
     
     @NotBlank
-    private String email;
+    private String grupoMuscular;
    
     @NotBlank
-    private String password;
+    private String dificultad;
     
-    @NotBlank
-    private String nivel;
-
+    private String descripcion;
+    
+    @JsonIgnore
     @ManyToMany(mappedBy = "ejercicios")
     private List<Entrenamiento> entrenamientos;
 }
