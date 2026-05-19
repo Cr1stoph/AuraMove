@@ -23,13 +23,13 @@ public class Sucursal {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
 
-        @NotBlank
+        @NotBlank(message = "El nombre es obligatorio")
         private String nombre;
         
-        @NotBlank
+        @NotBlank(message = "La dirección es obligatoria")
         private String direccion;
         
-        @NotBlank
+        @NotBlank(message = "La cidudad es obligatoria")
         private String ciudad;
 
         @ManyToOne

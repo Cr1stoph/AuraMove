@@ -30,17 +30,17 @@ public class Rutina {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "El nombre de la rutina es obligatorio")
     private String nombre;
 
-    @NotBlank
+    @NotBlank(message = "La descripcion no puede estar vacia")
     private String descripcion;
     
     @Min(value = 1, message = "El nivel minimo de la rutina es de 1") 
     @Max(value = 5, message = "El nivel máximo de la rutina es de 5")
     private Integer nivel;
-
-    @NotBlank
+    //El tipo de rutina se refiere a si es de tipo cardio, tipo de fuerza, empuje etc.
+    @NotBlank(message = "El tipo de rutina es obligatorio [Cardio, fuerza, traccion, empuje]")
     private String tipoRutina;
 
     @ManyToOne

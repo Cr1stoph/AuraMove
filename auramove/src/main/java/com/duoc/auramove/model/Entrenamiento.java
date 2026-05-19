@@ -32,12 +32,12 @@ public class Entrenamiento {
     private Integer id;
 
     //nombre del dia o sesion. ej: "dia de pierna", "full body"
-    @NotBlank
+    @NotBlank(message = "El nombre del entramiento es obligatorio [full body, espada, etc.]")
     private String nombre; 
 
     //duracion de la sesion en minutos
-    @NotNull
-    @Min(1)
+    @NotNull(message = "La duracion es obligatoria")
+    @Min(message = "La duracion minima es de 1 Minuto", value = 1)
     private Integer duracion;
 
     @JsonIgnore
