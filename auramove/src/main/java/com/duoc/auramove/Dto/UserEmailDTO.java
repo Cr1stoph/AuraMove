@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 public class UserEmailDTO {
     
     private String nombre;
+    private String apellido;
     private String email;
+
 }
