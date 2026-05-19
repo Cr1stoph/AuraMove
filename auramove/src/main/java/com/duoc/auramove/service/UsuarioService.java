@@ -1,4 +1,5 @@
 package com.duoc.auramove.service;
+import com.duoc.auramove.Dto.UserEmailDTO;
 import com.duoc.auramove.model.Usuario;
 import com.duoc.auramove.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,15 @@ public class UsuarioService {
             throw new RuntimeException("Usuario no encontrado");
         }
         usuarioRepository.deleteById(id);
+    }
+    public List<UserEmailDTO> getUsuarioConEmail(){
+        return usuarioRepository.findAll().stream()
+            .map(l -> new UserEmailDTO(
+                l.getNombre(),
+                l.getApellido(),
+                l.getApellido()
+            ))
+            .toList();
     }
 
 }
