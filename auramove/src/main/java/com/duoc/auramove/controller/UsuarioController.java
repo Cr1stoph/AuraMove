@@ -45,7 +45,7 @@ public class UsuarioController {
         System.out.println("[UsuarioController] -> saveUsuario");
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.saveUsuario(usuario));
     }
-        @PutMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Usuario> updateUsuario(@PathVariable Integer id, @Valid @RequestBody Usuario usuario){
         System.out.println("[UsuarioController] -> updateUsuario id =" + id);
         usuario.setId(id);
@@ -66,6 +66,12 @@ public class UsuarioController {
     public ResponseEntity<List<UserEmailDTO>> userPorEmail(){
         System.out.println("[UsuarioController] -> userPorEmail");
         return ResponseEntity.ok(usuarioService.getUsuarioConEmail());
+    }
+    //Endpoint que lanza una exepcion a proposito para uso de GlobalException
+    @GetMapping("/test-error")
+    public ResponseEntity<Usuario> testError() {
+        System.out.println("[UsuarioController] -> testError");
+        throw new RuntimeException("Este es un error de prueba lanzado intencionalmente");
     }
 
 }
