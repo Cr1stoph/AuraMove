@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.duoc.auramove.model.Ejercicio;
-import com.duoc.auramove.model.Sucursal;
 import com.duoc.auramove.service.EjercicioService;
 
 import jakarta.validation.Valid;
