@@ -13,7 +13,14 @@ public class WeatherService {
     @Autowired
     @Qualifier("weatherWebClient")
     private WebClient weatherWebClient;
-
+    /**
+     * Consulta el clima actual para las coordenadas dadas usando Open-Meteo.
+     * La API es pública, gratuita y no requiere API Key.
+     *
+     * @param latitude  latitud (ej: -33.45 para Santiago)
+     * @param longitude longitud (ej: -70.65 para Santiago)
+     * @return WeatherDTO con temperatura, viento y más datos actuales
+     */
     public WeatherDTO obtenerClima(double latitude, double longitude) {
         return weatherWebClient.get()
                 .uri(uriBuilder -> uriBuilder
