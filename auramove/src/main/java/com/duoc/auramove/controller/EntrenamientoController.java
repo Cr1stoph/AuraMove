@@ -31,7 +31,7 @@ public class EntrenamientoController {
         System.out.println("[EntrenamientoController]");
         return ResponseEntity.ok(entrenamientoService.getEntrenamiento());
     }
-    @GetMapping("/[id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Entrenamiento> getEntrenamientoById(@PathVariable Integer id){
         System.out.println("[EntrenamientoController] -> getEntrenamiento");
         Entrenamiento entrenamiento = entrenamientoService.getEntrenamientoById(id);
