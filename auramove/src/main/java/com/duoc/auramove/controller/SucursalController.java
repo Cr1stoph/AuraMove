@@ -39,12 +39,12 @@ public class SucursalController {
     }
     @PostMapping
     public ResponseEntity<Sucursal> saveSucursal(@Valid @RequestBody Sucursal sucursal){
-        System.out.println("[SucursalController] -> saveUsuario");
+        System.out.println("[SucursalController] -> agregarSucursal");
         return ResponseEntity.status(HttpStatus.CREATED).body(sucursalService.saveSucursal(sucursal));   
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Sucursal> updateUsuario(@PathVariable Integer id, @Valid @RequestBody Sucursal sucursal){
-        System.out.println("[UsuarioController] -> updateUsuario id = "+id);
+    public ResponseEntity<Sucursal> updateSucursal(@PathVariable Integer id, @Valid @RequestBody Sucursal sucursal){
+        System.out.println("[SucursalController] -> actualizaScursal id = "+id);
         sucursal.setId(id);
         Sucursal actualizado = sucursalService.updateSucursal(sucursal);
         if(actualizado == null){
@@ -54,7 +54,7 @@ public class SucursalController {
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removeSucursal(@PathVariable Integer id){
-        System.out.println("[SucursalController] -> removeSucursal id = "+ id);
+        System.out.println("[SucursalController] -> eliminaSucursal id = "+ id);
         sucursalService.deleteSucursal(id);
         return ResponseEntity.noContent().build();
     }
