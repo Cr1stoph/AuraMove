@@ -3,6 +3,7 @@ package com.duoc.auramove.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.duoc.auramove.model.Ejercicio;
+import com.duoc.auramove.model.Sucursal;
 import com.duoc.auramove.service.EjercicioService;
 
 import jakarta.validation.Valid;
@@ -44,7 +46,17 @@ public class EjercicioController {
     }
     @PutMapping("/{id}")
     public ResponseEntity<Ejercicio> updateEjercicio(@PathVariable Integer id, @Valid @RequestBody Ejercicio ejercicio){
-        System.out.println("[EjercicioController] -> updateEjercicio id = "+id);
+        System.out.println("[EjercicioController] -> actualizaEjercicio id = "+id);
+        ejercicio.setId(id);
+        Ejercicio actualizado = ejercicioService.updateEjercio(ejercicio);
+        if(actualizado == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(actualizado);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> removeEjercicio(@PathVariable Integer id){
+        System.out.println("[EjercicioController] -> EliminarEjercicioPorId id = "+id);
         ejercicioService.deleteEjercicio(id);
         return ResponseEntity.noContent().build();
     }
