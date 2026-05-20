@@ -43,7 +43,7 @@ public class UsuarioService {
             .map(l -> new UserEmailDTO(
                 l.getNombre(),
                 l.getApellido(),
-                l.getApellido()
+                l.getEmail()
             ))
             .toList();
     }
