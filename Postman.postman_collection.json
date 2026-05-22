@@ -101,7 +101,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"nombre\": \"Javier\",\r\n    \"apellido\": \"Valencia\",\r\n    \"email\": \"javier44@gmail.com\",\r\n    \"contraseña\" : \"1234\",\r\n    \"edad\" : \"21\" \r\n}\r\n",
+          "raw": "{\r\n    \"nombre\": \"Javier\",\r\n    \"apellido\": \"Valencia\",\r\n    \"email\": \"javier222@gmail.com\",\r\n    \"contraseña\" : \"1234\",\r\n    \"edad\" : \"22\" \r\n}\r\n",
           "options": {
             "raw": {
               "language": "json"
@@ -308,9 +308,30 @@
     },
     {
       "name": "Obtener Rutina Por id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Auramove - Los toros\",\r\n    \"direccion\": \"Los Toros 360\",\r\n    \"ciudad\": \"Puente Alto\",\r\n    \"usuarioId\": 1\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/rutina/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "rutina",
+            "1"
+          ]
+        }
       },
       "response": []
     },
@@ -349,8 +370,17 @@
       "request": {
         "method": "PUT",
         "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\":\"Tren superior\",\r\n    \"descripcion\": \" Rutina enfocada en pecho\",\r\n    \"nivel\": 3,\r\n    \"tipoRutina\": \"Traccion\",\r\n    \"usuarioId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
         "url": {
-          "raw": "http://localhost:8080/api/v1/rutina",
+          "raw": "http://localhost:8080/api/v1/rutina/1",
           "protocol": "http",
           "host": [
             "localhost"
@@ -359,7 +389,8 @@
           "path": [
             "api",
             "v1",
-            "rutina"
+            "rutina",
+            "1"
           ]
         }
       },
@@ -412,7 +443,21 @@
       "name": "Obtener entrenamiento por id",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/entrenamiento/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "entrenamiento",
+            "1"
+          ]
+        }
       },
       "response": []
     },
@@ -610,8 +655,78 @@
     {
       "name": "Eliminar ejercicio",
       "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Press de banca plano\",\r\n    \"grupoMuscular\": \"Pecho\",\r\n    \"dificultad\": 4,\r\n    \"descripcion\": \"Levantamiento de barra en banco plano con agarre medio\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ejercicio/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ejercicio",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Clima Actual Santiago",
+      "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/clima",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "clima"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Clima actual - coordenadas personalizadas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/clima?lat=-41.47&lon=-72.94",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "clima"
+          ],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-41.47"
+            },
+            {
+              "key": "lon",
+              "value": "-72.94"
+            }
+          ]
+        }
       },
       "response": []
     }
