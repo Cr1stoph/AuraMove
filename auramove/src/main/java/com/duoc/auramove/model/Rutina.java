@@ -30,7 +30,7 @@ public class Rutina {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "El nombre de la rutina es obligatorio")
+    @NotBlank(message = "El nombre de la rutina puede ser [Tren superior - tren inferior]")
     private String nombre;
 
     @NotBlank(message = "La descripcion no puede estar vacia")
