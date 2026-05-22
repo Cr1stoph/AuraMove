@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.duoc.auramove.service.SucursalService;
+import com.duoc.auramove.Dto.SucursalDTO;
 import com.duoc.auramove.model.Sucursal;
 import java.util.List;
 import jakarta.validation.Valid;
@@ -37,21 +38,25 @@ public class SucursalController {
         }
         return ResponseEntity.ok(sucursal);
     }
+
     @PostMapping
-    public ResponseEntity<Sucursal> saveSucursal(@Valid @RequestBody Sucursal sucursal){
+    public ResponseEntity<Sucursal> saveSucursal(@Valid @RequestBody SucursalDTO dto){
         System.out.println("[SucursalController] -> agregarSucursal");
-        return ResponseEntity.status(HttpStatus.CREATED).body(sucursalService.saveSucursal(sucursal));   
+        Sucursal sucursalGuardada = sucursalService.saveSucursal(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(sucursalGuardada);   
     }
+
+
     @PutMapping("/{id}")
-    public ResponseEntity<Sucursal> updateSucursal(@PathVariable Integer id, @Valid @RequestBody Sucursal sucursal){
+    public ResponseEntity<Sucursal> updateSucursal(@PathVariable Integer id, @Valid @RequestBody SucursalDTO dto){
         System.out.println("[SucursalController] -> actualizaScursal id = "+id);
-        sucursal.setId(id);
-        Sucursal actualizado = sucursalService.updateSucursal(sucursal);
+        Sucursal actualizado = sucursalService.updateSucursal(id, dto);
         if(actualizado == null){
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(actualizado);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removeSucursal(@PathVariable Integer id){
         System.out.println("[SucursalController] -> eliminaSucursal id = "+ id);
