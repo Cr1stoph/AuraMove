@@ -11,7 +11,7 @@ import com.duoc.auramove.Dto.WeatherDTO;
 import com.duoc.auramove.service.WeatherService;
 
 @RestController
-@RequestMapping("/api/v1/cliente")
+@RequestMapping("/api/v1/clima")
 public class WeatherController {
 
     @Autowired
