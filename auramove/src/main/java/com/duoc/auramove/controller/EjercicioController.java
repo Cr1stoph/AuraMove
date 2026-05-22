@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.duoc.auramove.Dto.EjercicioDTO;
 import com.duoc.auramove.model.Ejercicio;
 import com.duoc.auramove.service.EjercicioService;
 
@@ -39,16 +41,16 @@ public class EjercicioController {
         return ResponseEntity.ok(ejercicio);
     }
     @PostMapping
-    public ResponseEntity<Ejercicio> saveEjercicio(@Valid @RequestBody Ejercicio ejercicio){
+    public ResponseEntity<Ejercicio> saveEjercicio(@Valid @RequestBody EjercicioDTO dto) {
         System.out.println("[EjercicioController] -> saveEjercicio");
-        return ResponseEntity.status(HttpStatus.CREATED).body(ejercicioService.saveEjercicio(ejercicio));
+        return ResponseEntity.status(HttpStatus.CREATED).body(ejercicioService.saveEjercicio(dto));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Ejercicio> updateEjercicio(@PathVariable Integer id, @Valid @RequestBody Ejercicio ejercicio){
-        System.out.println("[EjercicioController] -> actualizaEjercicio id = "+id);
-        ejercicio.setId(id);
-        Ejercicio actualizado = ejercicioService.updateEjercio(ejercicio);
-        if(actualizado == null){
+    public ResponseEntity<Ejercicio> updateEjercicio(@PathVariable Integer id, @Valid @RequestBody EjercicioDTO dto) {
+        System.out.println("[EjercicioController] -> actualizaEjercicio id = " + id);
+        
+        Ejercicio actualizado = ejercicioService.updateEjercicio(id, dto);
+        if (actualizado == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(actualizado);
