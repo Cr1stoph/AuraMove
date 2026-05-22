@@ -43,11 +43,23 @@ public class RutinaService {
         return rutinaRepository.findById(Id).orElse(null);
     }
     //Actualizar rutina por el id
-    public Rutina updateRutina(Rutina rutina){
-        if(!rutinaRepository.existsById(rutina.getId())){
+// Actualizar rutina por el id usando DTO
+    public Rutina updateRutina(Integer id, RutinaDTO dto) {
+        Rutina rutinaExistente = rutinaRepository.findById(id).orElse(null);
+        if (rutinaExistente == null) {
             return null;
         }
-        return rutinaRepository.save(rutina);
+
+        Usuario usuario = usuarioRepository.findById(dto.getUsuarioId())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + dto.getUsuarioId()));
+
+        rutinaExistente.setNombre(dto.getNombre());
+        rutinaExistente.setDescripcion(dto.getDescripcion());
+        rutinaExistente.setNivel(dto.getNivel());
+        rutinaExistente.setTipoRutina(dto.getTipoRutina());
+        
+        rutinaExistente.setUsuario(usuario);
+        return rutinaRepository.save(rutinaExistente);
     }
     //Elimina rutina
     public void deleteRutina(Integer id){
