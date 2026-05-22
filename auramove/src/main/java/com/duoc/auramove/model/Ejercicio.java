@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,10 +35,10 @@ public class Ejercicio {
     @NotBlank(message = "El grupo muscular debe ser especificado")
     private String grupoMuscular;
    
-    @NotBlank(message = "La dificultad es obligatoria")
+    @NotNull(message = "La dificultad es obligatoria")
     @Min(value = 1, message = "La dificultad minima es 1")
     @Max(value = 5, message = "La dificultad máxima es de 5")
-    private String dificultad;
+    private Integer dificultad;
     
     @NotBlank(message = "La descripcion es obligatoria")
     private String descripcion;
