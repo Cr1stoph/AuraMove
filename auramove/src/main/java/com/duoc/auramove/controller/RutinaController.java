@@ -47,10 +47,9 @@ public class RutinaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(rutinaService.saveRutina(dto));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Rutina> updateRutina(@PathVariable Integer id, @Valid @RequestBody Rutina rutina){
-        System.out.println("[RutinaController] -> updateRutina id = "+id);
-        rutina.setId(id);
-        Rutina actualizado = rutinaService.updateRutina((rutina));
+    public ResponseEntity<Rutina> updateRutina(@PathVariable Integer id, @Valid @RequestBody RutinaDTO dto) {
+        System.out.println("[RutinaController] -> updateRutina id = " + id);
+        Rutina actualizado = rutinaService.updateRutina(id, dto);
         if (actualizado == null) {
             return ResponseEntity.notFound().build();
         }
