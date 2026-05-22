@@ -3,6 +3,7 @@ package com.duoc.auramove.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.duoc.auramove.Dto.EjercicioDTO;
 import com.duoc.auramove.model.Ejercicio;
 import com.duoc.auramove.repository.EjercicioRepository;
 import java.util.List;
@@ -17,19 +18,29 @@ public class EjercicioService {
         return ejerciciorepository.findAll();
     }
     //Guardar nuevo ejercicio
-    public Ejercicio saveEjercicio(Ejercicio ejercicio){
-        return ejerciciorepository.save(ejercicio);
+    public Ejercicio saveEjercicio(EjercicioDTO dto) {
+        Ejercicio nuevoEjercicio = new Ejercicio();
+        nuevoEjercicio.setNombre(dto.getNombre());
+        nuevoEjercicio.setGrupoMuscular(dto.getGrupoMuscular());
+        nuevoEjercicio.setDificultad(dto.getDificultad());
+        nuevoEjercicio.setDescripcion(dto.getDescripcion());
+        return ejerciciorepository.save(nuevoEjercicio);
     }
     // Buscar ejercicio por id
     public Ejercicio getEjercicioById(Integer id){
         return ejerciciorepository.findById(id).orElse(null);
     }
     //Actualiza nuevo ejercicio
-    public Ejercicio updateEjercio(Ejercicio ejercicio){
-        if (!ejerciciorepository.existsById(ejercicio.getId())) {
+    public Ejercicio updateEjercicio(Integer id, EjercicioDTO dto) {
+        Ejercicio existente = ejerciciorepository.findById(id).orElse(null);
+        if (existente == null) {
             return null;
         }
-        return ejerciciorepository.save(ejercicio);
+        existente.setNombre(dto.getNombre());
+        existente.setGrupoMuscular(dto.getGrupoMuscular());
+        existente.setDificultad(dto.getDificultad());
+        existente.setDescripcion(dto.getDescripcion());
+        return ejerciciorepository.save(existente);
     }
     //Eliminar ejercicio
     public void deleteEjercicio(Integer id){
