@@ -1,0 +1,955 @@
+{
+  "info": {
+    "_postman_id": "8d6efecf-b7c9-4004-b7a4-4387aa65ad5b",
+    "name": "Postman",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53341232",
+    "_collection_link": "https://go.postman.co/collection/53341232-8d6efecf-b7c9-4004-b7a4-4387aa65ad5b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Obtener usuarios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/usuarios?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "usuarios"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene lista de usuarios.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener Usuario dto",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/usuarios/com-email?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "usuarios",
+            "com-email"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Retrona una lista con el nombre, apellido y gmail del usuario",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Lanza error a proposito",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/usuarios/test-error?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "usuarios",
+            "test-error"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Endpoint de prueba que lanza una RuntimeException a propósito. Demuestra cómo el GlobalExceptionHandler intercepta el error y devuelve un JSON estructurado con código 500",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener Usuario por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/usuarios/2?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "usuarios",
+            "2"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Busca un usuario por id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Javier\",\r\n    \"apellido\": \"Valencia\",\r\n    \"email\": \"javier222@gmail.com\",\r\n    \"contraseña\" : \"1234\",\r\n    \"edad\" : \"22\" \r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/usuarios?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "usuarios"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Agrega un usuario considerando nombre, apellido, email, contraseña y edad.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar Usuario por Id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Javier\",\r\n    \"apellido\": \"Valencia\",\r\n    \"email\": \"javier123@gmail.com\",\r\n    \"contraseña\" : \"3456\",\r\n    \"edad\" : \"21\" \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/usuarios/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "usuarios",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Actualiza usuario existente por id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar por id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/usuarios/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "usuarios",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Elimina usuario por id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener sucursales",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/sucursales?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "sucursales"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene lista de las sucursales existentes",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar sucursal",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Auramove - Puente alto\",\r\n    \"direccion\": \"Avenida Concha Y Toro, Av. San Carlos 1340\",\r\n    \"ciudad\": \"Puente alto\",\r\n    \"usuarioId\": 3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/sucursales?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "sucursales"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Crea una sucursal nueva. El campo usuarioId debe corresponder a un usuario existente",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Modificar sucursal",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Auramove - Los toros\",\r\n    \"direccion\": \"Los Toros 360\",\r\n    \"ciudad\": \"Puente Alto\",\r\n    \"usuarioId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/sucursales/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "sucursales",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Modifica una sucursal existente.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar sucursal por id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Auramove - Los toros\",\r\n    \"direccion\": \"Los Toros 360\",\r\n    \"ciudad\": \"Puente Alto\",\r\n    \"usuarioId\": 1\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/sucursales/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "sucursales",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Elimia sucursal por id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener rutina",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/rutina?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "rutina"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene lista de todas las rutinas",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener Rutina Por id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Auramove - Los toros\",\r\n    \"direccion\": \"Los Toros 360\",\r\n    \"ciudad\": \"Puente Alto\",\r\n    \"usuarioId\": 1\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/rutina/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "rutina",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene una rutina por el id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar Rutina",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\":\"Tren superior\",\r\n    \"descripcion\": \" Rutina enfocada en pecho\",\r\n    \"nivel\": 3,\r\n    \"tipoRutina\": \"Fuerza\",\r\n    \"usuarioId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/rutina?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "rutina"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Crea una nueva rutina. El campo usuarioId debe corresponder a uno existente.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar rutina",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\":\"Tren superior\",\r\n    \"descripcion\": \" Rutina enfocada en pecho\",\r\n    \"nivel\": 3,\r\n    \"tipoRutina\": \"Traccion\",\r\n    \"usuarioId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/rutina/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "rutina",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Actualiza rutina existente por el id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar rutina por id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/rutina/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "rutina",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Elimina rutina por el id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener entrenamiento",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/entrenamiento?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "entrenamiento"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene lista de entrenamientos.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener entrenamiento por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/entrenamiento/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "entrenamiento",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene entrenamiento por el id.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar entrenamiento",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Día de pierna pesado\",\r\n    \"duracion\": 60,\r\n    \"rutinaId\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/entrenamiento?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "entrenamiento"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Agrega nuevo entrenamiento. El campo rutinaId debe corresponder a una rutina existente.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar entrenamiento",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Dia de pecho\",\r\n    \"duracion\": 60,\r\n    \"rutinaId\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/entrenamiento/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "entrenamiento",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Actualiza entrenamiento existente, si se modifica rutinaId debe corresponder a una rutina existente.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar entrenamiento",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Dia de pecho\",\r\n    \"duracion\": 60,\r\n    \"rutinaId\": 2\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/entrenamiento/2?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "entrenamiento",
+            "2"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Elimina entrenamiento por id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener ejercicios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ejercicio?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ejercicio"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene lista de ejercicios",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener ejercicios por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ejercicio/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ejercicio",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Obtiene ejercicio existente por id.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar ejercicio",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Press de banca plano\",\r\n    \"grupoMuscular\": \"Pecho\",\r\n    \"dificultad\": 3,\r\n    \"descripcion\": \"Levantamiento de barra en banco plano con agarre medio\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ejercicio?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ejercicio"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null,
+              "description": "Agrega ejercicios."
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar ejercicio",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Press de banca plano\",\r\n    \"grupoMuscular\": \"Pecho\",\r\n    \"dificultad\": 4,\r\n    \"descripcion\": \"Levantamiento de barra en banco plano con agarre medio\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ejercicio/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ejercicio",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Actualiza ejercicio existente.",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar ejercicio",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Press de banca plano\",\r\n    \"grupoMuscular\": \"Pecho\",\r\n    \"dificultad\": 4,\r\n    \"descripcion\": \"Levantamiento de barra en banco plano con agarre medio\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ejercicio/1?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ejercicio",
+            "1"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Elimina ejercicio por id",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Clima Actual Santiago",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/clima?",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "clima"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": null,
+              "description": "Devuelve el clima actual de Santiago de Chile usando la API Open-Meteo (lat=-33.45, lon=-70.65)",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Clima actual - coordenadas personalizadas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/clima?lat=-41.47&lon=-72.94&",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "clima"
+          ],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-41.47"
+            },
+            {
+              "key": "lon",
+              "value": "-72.94"
+            },
+            {
+              "key": null,
+              "value": null,
+              "description": "-41.47 para Puerto Montt",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
