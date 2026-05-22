@@ -16,6 +16,7 @@ import com.duoc.auramove.service.RutinaService;
 
 import jakarta.validation.Valid;
 
+import com.duoc.auramove.Dto.RutinaDTO;
 import com.duoc.auramove.model.Rutina;
 import java.util.List;
 
@@ -41,9 +42,9 @@ public class RutinaController {
         return ResponseEntity.ok(rutina);
     }
     @PostMapping
-    public ResponseEntity<Rutina> saveRutina(@Valid @RequestBody Rutina rutina){
+    public ResponseEntity<Rutina> saveRutina(@Valid @RequestBody RutinaDTO dto){
         System.out.println("[RutinaController] -> saveRutina");
-        return ResponseEntity.status(HttpStatus.CREATED).body(rutinaService.saveRutina(rutina));
+        return ResponseEntity.status(HttpStatus.CREATED).body(rutinaService.saveRutina(dto));
     }
     @PutMapping("/{id}")
     public ResponseEntity<Rutina> updateRutina(@PathVariable Integer id, @Valid @RequestBody Rutina rutina){
