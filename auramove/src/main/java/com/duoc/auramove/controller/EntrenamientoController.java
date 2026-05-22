@@ -16,6 +16,7 @@ import com.duoc.auramove.service.EntrenamientoService;
 
 import jakarta.validation.Valid;
 
+import com.duoc.auramove.Dto.EntrenamientoDTO;
 import com.duoc.auramove.model.Entrenamiento;
 import java.util.List;
 
@@ -41,15 +42,15 @@ public class EntrenamientoController {
         return ResponseEntity.ok(entrenamiento);
     }
     @PostMapping
-    public ResponseEntity<Entrenamiento> saveEntrenamiento(@Valid @RequestBody Entrenamiento entrenamiento){
+    public ResponseEntity<Entrenamiento> saveEntrenamiento(@Valid @RequestBody EntrenamientoDTO dto) {
         System.out.println("[EntrenamientoController] -> saveEntrenamiento");
-        return ResponseEntity.status(HttpStatus.CREATED).body(entrenamientoService.savEntrenamiento(entrenamiento));
+        return ResponseEntity.status(HttpStatus.CREATED).body(entrenamientoService.saveEntrenamiento(dto));
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Entrenamiento> updateEntrenamiento(@PathVariable Integer id, @Valid @RequestBody Entrenamiento entrenamiento){
+    public ResponseEntity<Entrenamiento> updateEntrenamiento(@PathVariable Integer id, @Valid @RequestBody EntrenamientoDTO dto) {
         System.out.println("[EntrenamientoController] -> updateEntrenamiento id = " + id);
-        entrenamiento.setId(id);
-        Entrenamiento actualizado = entrenamientoService.updEntrenamiento(entrenamiento);
+        Entrenamiento actualizado = entrenamientoService.updEntrenamiento(id, dto);
         if (actualizado == null) {
             return ResponseEntity.notFound().build();
         }
