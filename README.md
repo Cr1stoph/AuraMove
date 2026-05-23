@@ -227,7 +227,7 @@ Las pruebas de la API fueron realizadas utilizando Postman, permitiendo probar o
 * DELETE
 ## API Endpoints & Uso en Postman
 
-La URL base de la API es: `http://localhost:8080/api/v1/usuario`
+La URL base de la API es: `http://localhost:8080/api/v1`
 
 ### Resumen de Endpoints (Los demás usan la misma estructura)
 
@@ -241,19 +241,46 @@ La URL base de la API es: `http://localhost:8080/api/v1/usuario`
 ---
 
 ### Detalle de Endpoints
+Asegurando estar en el apartado "Body" de tipo JSON en postman para su buen funcionamiento.
 
 #### 1. Crear Usuario Request Body (JSON)
-`json
+```json
 {
-  "nombre": "Javier",
-  "apellido": "Valencia",
-  "email": "javi@example.com",
-  "contraseña": "password123",
-  "edad":21
-}`
+    "nombre": "Javier",
+    "apellido": "Valencia",
+    "email": "javier222@gmail.com",
+    "contraseña" : "1234",
+    "edad" : "22" 
+}
+```
+Devuelve todos los usuarios registrados con su respectiva información de entrenamiento, la sucursal a la que asisten.
+También podemos ver los datos meteorológicos en tiempo real de la ubicacion que se quiera buscar.
 
+### 2. Obtener temperatura y velocidad del viento en Santiago
+En postman con esta URL: http://localhost:8080/api/v1/clima?
+devolviendo algo como:
+```json
+{
+    "current_weather": {
+        "temperature": 7.3,
+        "windspeed": 1.3
+    }
+}
+```
 
-Además de validar respuestas, manejo de errores y consumo de API externa.
+Además de validar respuestas, manejo de errores y consumo de API externa (Open Meteo).
+
+### 3. Obtener temperatura de lugares especificos
+Postman URL: http://localhost:8080/api/v1/clima?lat=-41.47&lon=-72.94&
+En este caso es Puerto Montt, la respuesta será algo así:
+```json
+{
+    "current_weather": {
+        "temperature": 4.6,
+        "windspeed": 1.6
+    }
+}
+```
 
 ---
 
