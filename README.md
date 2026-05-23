@@ -1,2 +1,241 @@
 # AuraMove
 Web de gimnasio donde varios usuarios buscan el ejercicio con el que quieren comenzar y esta web desglosa como es que tiene partir para el entrenamiento.
+
+
+
+# Evaluación 2 - AuraMove
+
+---
+
+# Descripción del Proyecto
+
+**AuraMove API** es una aplicación backend desarrollada con **Spring Boot** y **MySQL**, enfocada en la gestión de usuarios, rutinas, entrenamientos y ejercicios mediante una API REST orientada al mundo fitness y entrenamiento personalizado.
+
+El proyecto busca representar una web de gimnasio donde distintos usuarios puedan buscar ejercicios y rutinas según el tipo de entrenamiento que desean comenzar. La aplicación permite desglosar la información necesaria para iniciar una rutina de entrenamiento, mostrando ejercicios relacionados, niveles de dificultad, duración de sesiones y distintos tipos de rutinas adaptadas a cada usuario.
+
+Además, el sistema permite administrar:
+
+* Usuarios
+* Rutinas
+* Entrenamientos
+* Ejercicios
+* Sucursales
+
+El proyecto también incluye integración con una API externa utilizando **Open Meteo API**, la cual permite obtener información climática desde un servicio REST externo.
+
+Para el desarrollo del proyecto se utilizaron las siguientes tecnologías:
+
+* Java 17
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* MySQL
+* Maven
+* Lombok
+* Postman
+
+---
+
+# Funcionalidades Implementadas
+
+## CRUD Completo
+
+El sistema incluye operaciones CRUD para las principales entidades del proyecto:
+
+* Usuarios
+* Rutinas
+* Entrenamientos
+* Ejercicios
+* Sucursales
+
+Estas operaciones permiten crear, listar, actualizar y eliminar información desde la API REST mediante distintos endpoints probados en Postman.
+
+---
+
+## Arquitectura del Proyecto
+
+El proyecto fue desarrollado utilizando arquitectura CSR (**Controller - Service - Repository**), separando las responsabilidades de cada capa para mantener un código más ordenado y fácil de mantener.
+
+La aplicación se encuentra organizada en distintas carpetas encargadas de manejar los controladores, servicios, repositorios, modelos, DTOs, excepciones y configuraciones generales del sistema. Esta estructura permite separar la lógica del negocio, el acceso a datos y la exposición de endpoints REST de forma más clara y profesional.
+
+---
+
+## Relaciones JPA Implementadas
+
+El proyecto implementa relaciones entre entidades utilizando JPA/Hibernate, permitiendo conectar la información entre usuarios, rutinas, entrenamientos y ejercicios.
+
+Se utilizaron relaciones como:
+
+* OneToMany
+* ManyToOne
+* ManyToMany
+
+Esto permite que, por ejemplo, un usuario pueda tener varias rutinas, o que un entrenamiento pueda tener múltiples ejercicios asociados.
+
+---
+
+## DTOs Implementados
+
+El proyecto implementa distintos DTOs para simplificar y organizar la información enviada en algunas respuestas de la API, evitando exponer datos innecesarios de las entidades principales.
+
+Actualmente se implementaron los siguientes DTOs:
+
+* `EjercicioDTO`
+* `EntrenamientoDTO`
+* `RutinaDTO`
+* `SucursalDTO`
+* `UserEmailDTO`
+* `WeatherDTO`
+
+Estos DTOs permiten entregar información más ordenada y específica según la funcionalidad utilizada dentro de la aplicación.
+
+---
+
+## Validaciones
+
+El proyecto incluye validaciones utilizando anotaciones de Spring Validation y Jakarta Validation, tales como:
+
+* `@Valid`
+* `@NotBlank`
+* `@NotNull`
+* `@Min`
+* `@Max`
+
+Estas validaciones ayudan a controlar que la información ingresada por el usuario cumpla con los requisitos mínimos antes de almacenarse en la base de datos.
+
+---
+
+## Manejo Global de Excepciones
+
+Se implementó un manejo global de excepciones mediante:
+
+```txt
+GlobalExceptionHandler
+```
+
+Esto permite controlar errores de forma más ordenada dentro de la aplicación y entregar respuestas más claras al momento de realizar pruebas en Postman.
+
+---
+
+## API Externa
+
+El proyecto integra la API externa:
+
+```txt
+Open Meteo API
+```
+
+la cual se utiliza para obtener información climática desde un servicio REST externo. Esta integración fue realizada para aplicar el consumo de APIs externas dentro del proyecto utilizando herramientas de Spring Boot.
+
+---
+
+# Base de Datos
+
+La aplicación utiliza una base de datos MySQL llamada:
+
+```sql
+auramove
+```
+
+La base de datos almacena toda la información relacionada con los usuarios, rutinas, ejercicios, entrenamientos y sucursales del sistema.
+
+Las tablas fueron generadas automáticamente utilizando JPA/Hibernate a partir de las entidades creadas en el proyecto, permitiendo que las relaciones entre modelos se reflejen directamente en MySQL.
+
+Tablas principales del sistema:
+
+* usuarios
+* rutinas
+* entrenamientos
+* ejercicios
+* sucursales
+
+Además, debido a las relaciones ManyToMany implementadas entre entrenamientos y ejercicios, se genera automáticamente una tabla intermedia encargada de relacionar ambas entidades.
+
+La administración y visualización de la base de datos se realizó utilizando HeidiSQL junto con Laragon para levantar el servicio MySQL localmente.
+
+Laragon y HeidiSQL fueron configurados utilizando el puerto:
+
+```txt
+3307
+```
+
+Esto permite la correcta conexión con MySQL durante el desarrollo del proyecto.
+
+---
+
+# Pasos para Ejecutar el Proyecto
+
+## 1. Requisitos Previos
+
+Antes de ejecutar el proyecto es necesario tener instalado:
+
+* Java 17
+* Visual Studio Code o IntelliJ IDEA
+* Laragon
+* HeidiSQL
+* Postman
+* Maven
+
+---
+
+## 2. Clonar el repositorio
+
+```bash
+git clone https://github.com/Cr1stoph/AuraMove.git
+```
+
+---
+
+## 3. Ejecutar Laragon y MySQL
+
+Iniciar Laragon y posteriormente abrir HeidiSQL para conectarse al servidor MySQL.
+
+Crear la base de datos ejecutando:
+
+```sql
+CREATE DATABASE auramove;
+```
+
+---
+
+## 4. Verificar application.properties
+
+Verificar que la información del archivo:
+
+```txt
+application.properties
+```
+
+coincida correctamente con la configuración realizada en Laragon y HeidiSQL, especialmente el puerto 3037 utilizado por MySQL ya que si se hace con un puerto distinto no funcionara correctamente.
+
+---
+
+## 5. Ejecutar el Proyecto
+
+Abrir el proyecto en Visual Studio Code o IntelliJ IDEA y ejecutar:
+
+```txt
+AuramoveApplication.java
+```
+
+Al iniciar la aplicación, Hibernate/JPA generará automáticamente las tablas correspondientes en la base de datos.
+
+---
+
+## 6. Pruebas en Postman
+
+Las pruebas de la API fueron realizadas utilizando Postman, permitiendo probar operaciones como:
+
+* GET
+* POST
+* PUT
+* DELETE
+
+Además de validar respuestas, manejo de errores y consumo de API externa.
+
+---
+
+# Integrantes
+
+* Cristopher Roa
+* Javier Valencia
