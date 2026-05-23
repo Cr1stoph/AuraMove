@@ -244,6 +244,7 @@ La URL base de la API es: `http://localhost:8080/api/v1`
 Asegurando estar en el apartado "Body" de tipo JSON en postman para su buen funcionamiento.
 
 #### 1. Crear Usuario Request Body (JSON)
+En postman con esta URL: http://localhost:8080/api/v1/usuarios
 ```json
 {
     "nombre": "Javier",
@@ -257,7 +258,7 @@ Devuelve todos los usuarios registrados con su respectiva información de entren
 También podemos ver los datos meteorológicos en tiempo real de la ubicacion que se quiera buscar.
 
 ### 2. Obtener temperatura y velocidad del viento en Santiago
-En postman con esta URL: http://localhost:8080/api/v1/clima?
+En postman con esta URL: http://localhost:8080/api/v1/clima
 devolviendo algo como:
 ```json
 {
