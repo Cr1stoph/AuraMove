@@ -225,6 +225,33 @@ Las pruebas de la API fueron realizadas utilizando Postman, permitiendo probar o
 * POST
 * PUT
 * DELETE
+## API Endpoints & Uso en Postman
+
+La URL base de la API es: `http://localhost:8080/api/v1/usuario`
+
+### Resumen de Endpoints (Los demás usan la misma estructura)
+
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| **GET** | `/usuario` | Obtiene todos los usuarios |
+| **POST** | `/usuario` | Crea un nuevo usuario |
+| **PUT** | `/usuario/:id` | Actualiza un usuario por ID |
+| **DEL** | `/usuario/:id` | Elimina un usuario por ID |
+
+---
+
+### Detalle de Endpoints
+
+#### 1. Crear Usuario Request Body (JSON)
+`json
+{
+  "nombre": "Javier",
+  "apellido": "Valencia",
+  "email": "javi@example.com",
+  "contraseña": "password123",
+  "edad":21
+}`
+
 
 Además de validar respuestas, manejo de errores y consumo de API externa.
 
