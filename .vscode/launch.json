@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AuramoveApplication",
+            "request": "launch",
+            "mainClass": "com.duoc.auramove.AuramoveApplication",
+            "projectName": "auramove"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
