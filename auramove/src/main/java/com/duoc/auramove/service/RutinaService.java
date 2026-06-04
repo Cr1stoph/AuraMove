@@ -5,19 +5,19 @@ import org.springframework.stereotype.Service;
 
 import com.duoc.auramove.Dto.RutinaDTO;
 import com.duoc.auramove.model.Rutina;
-import com.duoc.auramove.model.Usuario;
+import com.duoc.auramove.model.Usuario_web;
 
 import java.util.List;
 
 import com.duoc.auramove.repository.RutinaRepository;
-import com.duoc.auramove.repository.UsuarioRepository;
+import com.duoc.auramove.repository.UsuarioRepository_web;
 
 @Service
 public class RutinaService {
     @Autowired
     private RutinaRepository rutinaRepository;
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioRepository_web usuarioRepository;
 
     
     //Obtener lista ed todas las sucursales
@@ -27,7 +27,7 @@ public class RutinaService {
 
     public Rutina saveRutina(RutinaDTO dto) {
         // 1. Buscamos al usuario
-        Usuario usuario = usuarioRepository.findById(dto.getUsuarioId())
+        Usuario_web usuario = usuarioRepository.findById(dto.getUsuarioId())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + dto.getUsuarioId()));
         Rutina nuevaRutina = new Rutina();
         nuevaRutina.setNombre(dto.getNombre());
@@ -50,7 +50,7 @@ public class RutinaService {
             return null;
         }
 
-        Usuario usuario = usuarioRepository.findById(dto.getUsuarioId())
+        Usuario_web usuario = usuarioRepository.findById(dto.getUsuarioId())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + dto.getUsuarioId()));
 
         rutinaExistente.setNombre(dto.getNombre());

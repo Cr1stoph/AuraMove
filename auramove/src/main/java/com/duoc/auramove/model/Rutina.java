@@ -45,7 +45,7 @@ public class Rutina {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuario usuario;
+    private Usuario_web usuario;
 
     //Una rutina tiene varios entrenamientos pero cada entrenamiento es parte de una rutina
     @JsonIgnore

@@ -1,9 +1,9 @@
 package com.duoc.auramove.service;
 import com.duoc.auramove.Dto.SucursalDTO;
 import com.duoc.auramove.model.Sucursal;
-import com.duoc.auramove.model.Usuario;
+import com.duoc.auramove.model.Usuario_web;
 import com.duoc.auramove.repository.SucursalRepository;
-import com.duoc.auramove.repository.UsuarioRepository;
+import com.duoc.auramove.repository.UsuarioRepository_web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class SucursalService {
     private SucursalRepository sucursalRepository;
     //LLama a que se haga un nuevo objeto de usuariorepository para ligar las sucursales con el usuario
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioRepository_web usuarioRepository;
 
     //Obtiene lista de todas las sucursales en la base de datos
     public List<Sucursal> getSucursales() {
@@ -23,7 +23,7 @@ public class SucursalService {
     }
     // Guarda una nueva sucursal
     public Sucursal saveSucursal(SucursalDTO dto){
-        Usuario usuario = usuarioRepository.findById(dto.getUsuarioId())
+        Usuario_web usuario = usuarioRepository.findById(dto.getUsuarioId())
                 .orElseThrow(()-> new RuntimeException("Usuario no encontrado id = " +dto.getUsuarioId()));
         Sucursal nuevaSucursal = new Sucursal();
         nuevaSucursal.setNombre(dto.getNombre());
@@ -44,7 +44,7 @@ public class SucursalService {
         if(sucursalExiste == null){
             return null; //si no existe el controlador devuelve un 404
         }
-        Usuario usuario = usuarioRepository.findById(dto.getUsuarioId())
+        Usuario_web usuario = usuarioRepository.findById(dto.getUsuarioId())
             .orElseThrow(()-> new RuntimeException("Usuario no encontrado id = "+dto.getUsuarioId()));
 
         sucursalExiste.setNombre(dto.getNombre());

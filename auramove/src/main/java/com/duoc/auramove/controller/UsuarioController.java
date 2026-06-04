@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.duoc.auramove.Dto.UserEmailDTO;
-import com.duoc.auramove.model.Usuario;
+import com.duoc.auramove.model.Usuario_web;
 import com.duoc.auramove.service.UsuarioService;
 import jakarta.validation.Valid;
 
@@ -25,15 +25,15 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> getAllusuarios(){
+    public ResponseEntity<List<Usuario_web>> getAllusuarios(){
         System.out.println("[UsuarioController] -> getAllUsuarios");
         return ResponseEntity.ok(usuarioService.getUsuarios());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Integer id){
+    public ResponseEntity<Usuario_web> getUsuarioById(@PathVariable Integer id){
         System.out.println("[UsuarioController] -> getUsuarioById id =" + id);
-        Usuario usuario = usuarioService.getUsuarioById(id);
+        Usuario_web usuario = usuarioService.getUsuarioById(id);
         if (usuario == null) {
             return ResponseEntity.notFound().build();
         }
@@ -41,15 +41,15 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> saveUsuario(@Valid @RequestBody Usuario usuario){
+    public ResponseEntity<Usuario_web> saveUsuario(@Valid @RequestBody Usuario_web usuario){
         System.out.println("[UsuarioController] -> saveUsuario");
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.saveUsuario(usuario));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> updateUsuario(@PathVariable Integer id, @Valid @RequestBody Usuario usuario){
+    public ResponseEntity<Usuario_web> updateUsuario(@PathVariable Integer id, @Valid @RequestBody Usuario_web usuario){
         System.out.println("[UsuarioController] -> updateUsuario id =" + id);
         usuario.setId(id);
-        Usuario actualizado = usuarioService.updateUsuario(usuario);
+        Usuario_web actualizado = usuarioService.updateUsuario(usuario);
         if(actualizado == null){
             return ResponseEntity.notFound().build();
         }
@@ -69,7 +69,7 @@ public class UsuarioController {
     }
     //Endpoint que lanza una exepcion a proposito para uso de GlobalException
     @GetMapping("/test-error")
-    public ResponseEntity<Usuario> testError() {
+    public ResponseEntity<Usuario_web> testError() {
         System.out.println("[UsuarioController] -> testError");
         throw new RuntimeException("Este es un error de prueba lanzado intencionalmente");
     }
