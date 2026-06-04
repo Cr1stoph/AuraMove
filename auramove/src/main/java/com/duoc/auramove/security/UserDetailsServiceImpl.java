@@ -6,10 +6,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-
-import com.duoc.auramove.model.Usuario_web;
-import com.duoc.auramove.repository.UsuarioRepository_web;
+import com.duoc.auramove.model.Usuario;
+import com.duoc.auramove.repository.UsuarioRepository;
 
 import java.util.List;
 
@@ -24,11 +22,11 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
     
     @Autowired
-    private UsuarioRepository_web usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario_web usuario = usuarioRepository
+        Usuario usuario = usuarioRepository
                 .findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + username));
 
