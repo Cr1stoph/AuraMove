@@ -1,4 +1,4 @@
-package com.example.bibliotecaduoc.security;
+package com.duoc.auramove.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -23,9 +23,10 @@ import java.util.List;
  *  3. Si es válido, extrae username y rol y los registra en el SecurityContext
  *  4. Spring Security usa ese contexto para aplicar las reglas de autorización
  */
+
 @Component
 public class JwtFilter extends OncePerRequestFilter {
-
+    
     @Autowired
     private JwtUtil jwtUtil;
 
