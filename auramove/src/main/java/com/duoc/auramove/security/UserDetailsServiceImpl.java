@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.duoc.auramove.model.Usuario;
 import com.duoc.auramove.repository.UsuarioRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
  * y comparar su contraseña encriptada con la recibida en el login.
  */
 
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     
     @Autowired
