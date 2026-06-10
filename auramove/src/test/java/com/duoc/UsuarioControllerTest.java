@@ -12,7 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 
 import com.duoc.auramove.controller.UsuarioController;
-import com.duoc.auramove.model.Usuario;
+import com.duoc.auramove.model.Usuario_web;
 import com.duoc.auramove.service.UsuarioService;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,11 +27,11 @@ public class UsuarioControllerTest {
     @Test
     void crearUsuario_retorna201_cuandoExisteUsuario() {
 
-        Usuario usuario = new Usuario(1, "Carlos", "carl1234");
+        Usuario_web usuario = new Usuario_web(1, "Javier", "Valencia", "java1234@gmail.com", "jav1234", 22, null, null);
 
-        when(UsuarioService.saveLibro(usuario)).thenReturn(usuario);
+        when(usuarioservice.saveUsuario(usuario)).thenReturn(usuario);
 
-        var respuesta = UsuarioController.agregarLibro(usuario);
+        var respuesta = usuariocontroller.saveUsuario(usuario);
 
         assertNotNull(respuesta);
 
@@ -40,6 +40,6 @@ public class UsuarioControllerTest {
         var body = respuesta.getBody();
         assertNotNull(body);
 
-        assertEquals("Cien años de soledad", body.getTitulo());
+        assertEquals("Javier", body.getNombre());
     }
 }
