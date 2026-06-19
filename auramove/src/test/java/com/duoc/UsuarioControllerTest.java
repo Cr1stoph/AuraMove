@@ -72,4 +72,17 @@ public class UsuarioControllerTest {
             usuariocontroller.saveUsuario(usuarioInvalido);
         });
     }
+    //Prueba para edad null
+    @Test
+    void crearUsuario_retorna400_cuandoLaEdadEsNula() {
+
+        Usuario_web usuarioInvalido = new Usuario_web(4, "Carlos", "Rodriguez", "carlos@gmail.com", "456", null, null, null);
+
+        when(usuarioservice.saveUsuario(usuarioInvalido))
+            .thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "La edad es obligatoria"));
+
+        assertThrows(ResponseStatusException.class, () -> {
+            usuariocontroller.saveUsuario(usuarioInvalido);
+        });
+    }
 }
