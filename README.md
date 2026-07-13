@@ -4,7 +4,7 @@
 
 # Descripción del Proyecto
 
-**AuraMove API** es una aplicación backend desarrollada con **Spring Boot** y **MySQL**, enfocada en la gestión de usuarios, rutinas, entrenamientos y ejercicios mediante una API REST orientada al mundo fitness y entrenamiento personalizado.
+**AuraMove API** es una Aplicación backend desarrollada con **Spring Boot** y **MySQL**, enfocada en la gestión de usuarios, rutinas, entrenamientos y ejercicios mediante una API REST orientada al mundo fitness y entrenamiento personalizado.
 
 El proyecto busca representar una web de gimnasio donde distintos usuarios puedan buscar ejercicios y rutinas según el tipo de entrenamiento que desean comenzar. La aplicación permite desglosar la información necesaria para iniciar una rutina de entrenamiento, mostrando ejercicios relacionados, niveles de dificultad, duración de sesiones y distintos tipos de rutinas adaptadas a cada usuario.
 
