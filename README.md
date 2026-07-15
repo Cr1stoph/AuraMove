@@ -1,10 +1,25 @@
 # Evaluación 2 - AuraMove
 
 ---
+# Índice
+-  [1) Descripción del proyecto](#Descripción-del-Proyecto)
+-  [2) Funcionalidades Implementadas](#Funcionalidades-Implementadas)
+-  [3) Arquitectura del proyecto](#Arquitectura-del-Proyecto)
+-  [4) Relaciones JPA Implementadas](#Relaciones-JPA-Implementadas)
+-  [5) DTOs Implementados](#DTOs-Implementados)
+-  [6) Validaciones](#Validaciones)
+-  [7) Manejo Global de Excepciones](#Manejo-Global-de-Excepciones)
+-  [8) API Externa](#API-Externa)
+-  [9) Base de Datos](#Base-de-Datos)
+-  [10) Pasos para Ejecutar el Proyecto](#Pasos-para-Ejecutar-el-Proyecto)
+-  [11) API Endpoints & Uso en Postman](#api-postman)
+-  [12) Detalle de Endpoints](#Detalle-de-Endpoints)
+-  [13) Integrantes](#Integrantes)
+---
 
 # Descripción del Proyecto
 
-**AuraMove API** es una aplicación backend desarrollada con **Spring Boot** y **MySQL**, enfocada en la gestión de usuarios, rutinas, entrenamientos y ejercicios mediante una API REST orientada al mundo fitness y entrenamiento personalizado.
+**AuraMove API** es una Aplicación backend desarrollada con **Spring Boot** y **MySQL**, enfocada en la gestión de usuarios, rutinas, entrenamientos y ejercicios mediante una API REST orientada al mundo fitness y entrenamiento personalizado.
 
 El proyecto busca representar una web de gimnasio donde distintos usuarios puedan buscar ejercicios y rutinas según el tipo de entrenamiento que desean comenzar. La aplicación permite desglosar la información necesaria para iniciar una rutina de entrenamiento, mostrando ejercicios relacionados, niveles de dificultad, duración de sesiones y distintos tipos de rutinas adaptadas a cada usuario.
 
@@ -225,7 +240,7 @@ Las pruebas de la API fueron realizadas utilizando Postman, permitiendo probar o
 * POST
 * PUT
 * DELETE
-## API Endpoints & Uso en Postman
+## <a id="api-postman"></a> 11) API Endpoints & Uso en Postman
 
 La URL base de la API es: `http://localhost:8080/api/v1`
 
