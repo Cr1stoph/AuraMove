@@ -185,6 +185,17 @@ No se suben las credenciales reales al repositorio. Este proyecto está preparad
 - `JWT_SECTRET`
  
 Esto permite la correcta conexión con MySQL durante el desarrollo del proyecto.
+Para desarrollo local se pueden exportar en terminal (PowerShell):
+```
+$env:DB_URL="jdbc:mysql://localhost:3307/bibliotecaduoc?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC"
+$env:DB_USERNAME="root"
+$env:DB_PASSWORD="tu_password"
+$env:JWT_SECRET="una-clave-larga-y-segura-de-al-menos-32-caracteres"
+.\mvnw.cmd spring-boot:run
+
+```
+Para Docker Compose, usa un archivo `.env` (no versionado). Hay una plantilla en `.env.example`
+(Nota: En esta configuracion *No hay valores por defecto* para credenciales/secretos. Si falta una variable de entorno, la app/compose fallará al iniciar (intencional)
 
 ---
 
