@@ -195,7 +195,7 @@ $env:JWT_SECRET="una-clave-larga-y-segura-de-al-menos-32-caracteres"
 
 ```
 Para Docker Compose, usa un archivo `.env` (no versionado). Hay una plantilla en `.env.example`
-(Nota: En esta configuracion *No hay valores por defecto* para credenciales/secretos. Si falta una variable de entorno, la app/compose fallará al iniciar (intencional)
+(Nota: En esta configuracion **No hay valores por defecto** para credenciales/secretos. Si falta una variable de entorno, la app/compose fallará al iniciar (intencional)
 
 ---
 
