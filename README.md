@@ -177,6 +177,13 @@ Laragon y HeidiSQL fueron configurados utilizando el puerto:
 3307
 ```
 
+## Recomendación de seguridad (credenciales)
+No se suben las credenciales reales al repositorio. Este proyecto está preparado para leer datos secretos desde variables de entorno: 
+- ´DB_URL´
+- ´DB_USERNAME´
+- ´DB_PASSWORD´
+- ´JWT_SECTRET´
+ 
 Esto permite la correcta conexión con MySQL durante el desarrollo del proyecto.
 
 ---
