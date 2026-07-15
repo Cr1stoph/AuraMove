@@ -1,8 +1,8 @@
 # Evaluación 2 - AuraMove
 
 ---
-#Índice
-1) [Descripción del proyecto](Descripción del Proyecto)
+# Índice
+[Descripción del proyecto](Descripción del Proyecto)
 ---
 
 # Descripción del Proyecto
