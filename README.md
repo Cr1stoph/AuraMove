@@ -3,6 +3,18 @@
 ---
 # Índice
 -  [1) Descripción del proyecto](Descripción-del-Proyecto)
+-  [2) Funcionalidades Implementadas](Funcionalidades-Implementadas)
+-  [3) Arquitectura del proyecto](Arquitectura-del-Proyecto)
+-  [4) Relaciones JPA Implementadas](Relaciones-JPA-Implementadas)
+-  [5) DTOs Implementados](DTOs-Implementados)
+-  [6) Validaciones](Validaciones)
+-  [7) Manejo Global de Excepciones](Manejo-Global-de-Excepciones)
+-  [8) API Externa](API-Externa)
+-  [9) Base de Datos](Base-de-Datos)
+-  [10) Pasos para Ejecutar el Proyecto](Pasos-para-Ejecutar-el-Proyecto)
+-  [11) API Endpoints & Uso en Postman](API-Endpoints-&-Uso-en-Postman)
+-  [12) Detalle de Endpoints](Detalle-de-Endpoints)
+-  [13) Integrantes](Integrantes)
 ---
 
 # Descripción del Proyecto
