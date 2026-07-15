@@ -12,7 +12,7 @@
 -  [8) API Externa](#API-Externa)
 -  [9) Base de Datos](#Base-de-Datos)
 -  [10) Pasos para Ejecutar el Proyecto](#Pasos-para-Ejecutar-el-Proyecto)
--  [11) API Endpoints & Uso en Postman](#11-api-endpoints-uso-en-postman)
+-  [11) API Endpoints & Uso en Postman](#api-postman)
 -  [12) Detalle de Endpoints](#Detalle-de-Endpoints)
 -  [13) Integrantes](#Integrantes)
 ---
@@ -240,7 +240,7 @@ Las pruebas de la API fueron realizadas utilizando Postman, permitiendo probar o
 * POST
 * PUT
 * DELETE
-# API Endpoints & Uso en Postman
+## <a id="api-postman"></a> 11) API Endpoints & Uso en Postman
 
 La URL base de la API es: `http://localhost:8080/api/v1`
 
