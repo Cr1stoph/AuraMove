@@ -12,7 +12,7 @@
 -  [8) API Externa](#API-Externa)
 -  [9) Base de Datos](#Base-de-Datos)
 -  [10) Pasos para Ejecutar el Proyecto](#Pasos-para-Ejecutar-el-Proyecto)
--  [11) API Endpoints & Uso en Postman](#API-Endpoints-&-Uso-en-Postman)
+-  [11) API Endpoints & Uso en Postman](#11-api-endpoints-uso-en-postman)
 -  [12) Detalle de Endpoints](#Detalle-de-Endpoints)
 -  [13) Integrantes](#Integrantes)
 ---
