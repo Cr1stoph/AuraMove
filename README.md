@@ -161,7 +161,15 @@ Tablas principales del sistema:
 
 Además, debido a las relaciones ManyToMany implementadas entre entrenamientos y ejercicios, se genera automáticamente una tabla intermedia encargada de relacionar ambas entidades.
 
-La administración y visualización de la base de datos se realizó utilizando HeidiSQL junto con Laragon para levantar el servicio MySQL localmente.
+El archivo `src/main/resources/application.properties` contiene la conexión:
+```properties
+server.port=${PORT:8080}
+spring.datasource.url=${DB_URL:${MYSQL_URL}}
+spring.datasource.username=${DB_USERNAME:${MYSQLUSER}}
+spring.datasource.password=${DB_PASSWORD:${MYSQLPASSWORD}}
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
 
 Laragon y HeidiSQL fueron configurados utilizando el puerto:
 
