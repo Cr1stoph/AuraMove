@@ -1,6 +1,6 @@
 # Evaluación 2 - AuraMove
 ---
-# Índice
+# Índice 
 -  [1) Descripción del proyecto](#Descripción-del-Proyecto)
 -  [2) Funcionalidades Implementadas](#Funcionalidades-Implementadas)
 -  [3) Arquitectura del proyecto](#Arquitectura-del-Proyecto)
